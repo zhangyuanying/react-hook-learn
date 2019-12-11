@@ -9,6 +9,7 @@ import Demo7 from "./demo7";
 import Demo8 from "./demo8";
 import Demo9 from "./demo9";
 import Demo10 from "./demo10";
+import Demo11 from "./demo11";
 
 function Hooks() {
   return (
@@ -21,7 +22,8 @@ function Hooks() {
       {/* <Demo7 /> */}
       {/* <Demo8 /> */}
       {/* <Demo9 /> */}
-      <Demo10 />
+      {/* <Demo10 /> */}
+      <Demo11 />
     </>
   );
 }

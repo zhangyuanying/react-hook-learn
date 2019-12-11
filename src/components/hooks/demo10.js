@@ -11,7 +11,7 @@ const Child = forwardRef((props, ref) => {
   const [value, setVal] = useState("");
   // 第一版
   // useImperativeHandle(ref, () => {
-  //   console.log("useImperativeHandle");
+  //   console.log("useImperativeHandle", value);
   //   return {
   //     value,
   //     focus: () => inputEl.current.focus()
@@ -22,7 +22,7 @@ const Child = forwardRef((props, ref) => {
   useImperativeHandle(
     ref,
     () => {
-      console.log("useImperativeHandle");
+      console.log("useImperativeHandle", value);
       return {
         value,
         focus: () => inputEl.current.focus()
