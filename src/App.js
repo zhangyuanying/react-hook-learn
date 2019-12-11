@@ -11,7 +11,6 @@ import Base from "./components/hoc/base";
 import GroupButton, { Button } from "./components/combine/group-button";
 import Mouse from "./components/mouse";
 import Hooks from "./components/hooks";
-import { bold } from "ansi-colors";
 
 const Hoc = inheritHOC(Stateful);
 
