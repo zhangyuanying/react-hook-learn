@@ -14,8 +14,8 @@ import Demo11 from "./demo11";
 function Hooks() {
   return (
     <>
-      {/* <Demo1 />
-      <Demo2 /> */}
+      <Demo1 />
+      {/* <Demo2 /> */}
       {/* <Demo3 /> */}
       {/* <Demo5 /> */}
       {/* <Demo6 /> */}
