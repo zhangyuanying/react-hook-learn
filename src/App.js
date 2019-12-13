@@ -11,6 +11,7 @@ import Base from "./components/hoc/base";
 import GroupButton, { Button } from "./components/combine/group-button";
 import Mouse from "./components/mouse";
 import Hooks from "./components/hooks";
+import Page from "./pages";
 
 const Hoc = inheritHOC(Stateful);
 
@@ -58,15 +59,13 @@ class App extends React.Component {
           <Button value="white">white</Button>
         </GroupButton> */}
 
-        <p>-------------------------------------------</p>
+        {/* <p>-------------------------------------------</p>
         <p>
           <strong>HOOKS</strong>
         </p>
-        <Hooks />
-
-        {/* <p>双向绑定 useHooks: </p>
-        <InputHook />
-        <Mouse /> */}
+        <Hooks /> */}
+        <p>-------------------------------------------</p>
+        <Page />
       </div>
     );
   }
