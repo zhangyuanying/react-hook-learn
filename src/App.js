@@ -13,6 +13,8 @@ import Mouse from "./components/mouse";
 import Hooks from "./components/hooks";
 import Page from "./pages";
 
+import "antd/dist/antd.css";
+
 const Hoc = inheritHOC(Stateful);
 
 const HocBase = inheritHOC(Base);

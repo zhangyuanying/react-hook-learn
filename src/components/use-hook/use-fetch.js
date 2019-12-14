@@ -1,13 +1,14 @@
 import { useState, useEffect, useCallback } from "react";
 
 function useFetch(fetch, params, visible = true) {
-  const [data, setData] = useState({});
+  const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [newParams, setNewParams] = useState(params);
   const fetchApi = useCallback(async () => {
-    console.log("useCallback");
+    // console.log("useCallback");
     if (visible) {
       setLoading(true);
+      // console.log("fetch===>");
       const res = await fetch(newParams);
       if (res.code === 1) {
         setData(res.data);
@@ -17,7 +18,7 @@ function useFetch(fetch, params, visible = true) {
   }, [fetch, newParams, visible]);
 
   useEffect(() => {
-    console.log("useEffect");
+    // console.log("useEffect");
     fetchApi();
   }, [fetchApi]);
 

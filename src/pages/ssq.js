@@ -6,7 +6,11 @@ function Ssq() {
   // const params = useMemo(() => ({ code: "ssq" }), []);
   // const data = useFetch(getSsq, JSON.stringify({ code: "ssq" }));
   const [visible, setVisible] = useState(false);
-  const { data, doFetch, reFetch, loading } = useFetch(getSsq, { code: "ssq" });
+  const { data = {}, doFetch, reFetch, loading } = useFetch(
+    getSsq,
+    { code: "ssq" },
+    visible
+  );
   console.log("render");
   return (
     <div>
