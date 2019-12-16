@@ -1,8 +1,13 @@
 import React from "react";
 
+function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || "Component";
+}
+
 function inheritHOC(WrappedComponent) {
   // 继承
   return class Component extends WrappedComponent {
+    // static displayName = `HOC(${getDisplayName(WrappedComponent)})`;
     // ...
     getName = () => {
       // console.log("onChangeName");

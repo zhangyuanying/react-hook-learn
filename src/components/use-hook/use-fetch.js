@@ -22,9 +22,12 @@ function useFetch(fetch, params, visible = true) {
     fetchApi();
   }, [fetchApi]);
 
-  const doFetch = useCallback(rest => {
-    setNewParams(rest);
-  }, []);
+  const doFetch = useCallback(
+    rest => {
+      setNewParams({ ...newParams, ...(rest || {}) });
+    },
+    [newParams]
+  );
 
   const reFetch = () => {
     setNewParams(Object.assign({}, newParams));

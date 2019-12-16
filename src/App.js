@@ -35,21 +35,21 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* <Stateless />
-        <Stateful />
+        {/* <Stateless /> */}
+        {/* <Stateful /> */}
 
-        <HocBase />
+        {/* <HocBase />
         <br />
         <Hoc data={[1, [2, [3, [4, [5, [6, 7]]]]]]} />
-        <br />
-        <p>双向绑定 HOC: </p>
+        <br /> */}
+        {/* <p>双向绑定 HOC: </p>
         <InputBind initialValue="initialValue" ref={this.ref} />
         <br />
         <p>双向绑定 RenderProps HOC: </p>
         <RenderPropsBind initialValue="initialValue">
           {props => <Input {...props} />}
-        </RenderPropsBind>
-        <p>组合式组件</p>
+        </RenderPropsBind> */}
+        {/* <p>组合式组件</p>
         <GroupButton
           onChange={e => {
             console.log("onChange", e);
