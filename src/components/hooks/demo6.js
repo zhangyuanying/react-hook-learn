@@ -51,7 +51,7 @@ function Demo6() {
     } catch (error) {
       dispatch({ type: "FETCH_FAIL", payload: error });
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     getData();

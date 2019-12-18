@@ -4,7 +4,7 @@ class RenderPropsBind extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.initialValue || ""
+      value: this.props.initialvalue || ""
     };
   }
   onChange = e => {

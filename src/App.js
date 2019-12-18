@@ -14,6 +14,7 @@ import Hooks from "./components/hooks";
 import Page from "./pages";
 
 import "antd/dist/antd.css";
+import DeepLearn from "./components/deep-learn";
 
 const Hoc = inheritHOC(Stateful);
 
@@ -35,20 +36,24 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* <Stateless /> */}
-        {/* <Stateful /> */}
-
-        {/* <HocBase />
-        <br />
+        <p>Stateless </p>
+        <Stateless />
+        <p>Stateful </p>
+        <Stateful />
+        <p>HOC </p>
+        <HocBase />
+        <p>HOC JSON化数据</p>
         <Hoc data={[1, [2, [3, [4, [5, [6, 7]]]]]]} />
-        <br /> */}
-        {/* <p>双向绑定 HOC: </p>
-        <InputBind initialValue="initialValue" ref={this.ref} />
+
+        <br />
+        <p>双向绑定 HOC: </p>
+        <InputBind initialvalue="initialValue" />
         <br />
         <p>双向绑定 RenderProps HOC: </p>
-        <RenderPropsBind initialValue="initialValue">
+        <RenderPropsBind initialvalue="initialValue">
           {props => <Input {...props} />}
-        </RenderPropsBind> */}
+        </RenderPropsBind>
+
         {/* <p>组合式组件</p>
         <GroupButton
           onChange={e => {
@@ -66,8 +71,11 @@ class App extends React.Component {
           <strong>HOOKS</strong>
         </p>
         <Hooks /> */}
-        <p>-------------------------------------------</p>
-        <Page />
+        {/* <p>-------------------------------------------</p>
+        <Page /> */}
+
+        {/* <p>-----------------------------------------------</p> */}
+        {/* <DeepLearn /> */}
       </div>
     );
   }

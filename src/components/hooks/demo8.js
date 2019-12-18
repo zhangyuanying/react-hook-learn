@@ -1,15 +1,42 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 
-function Child({ event, data }) {
-  // 第五版
+function Demo() {
+  const [data, setData] = useState({});
+  const ref = useRef();
+  const fetchData = async () => {
+    const res = await fetch(
+      "https://www.mxnzp.com/api/lottery/common/latest?code=ssq"
+    );
+    setData(await res.json());
+  };
+  // const fetchData = useCallback(async () => {
+  //   const res = await fetch(
+  //     "https://www.mxnzp.com/api/lottery/common/latest?code=ssq"
+  //   );
+  //   setData(await res.json());
+  // }, []);
+  // console.log("object", fetchData === ref.current);
   useEffect(() => {
-    console.log("child-useEffect");
-    event();
-  }, [event]);
+    ref.current = fetchData;
+    fetchData();
+  }, [fetchData]);
+  return <div>demo8: {JSON.stringify(data)}</div>;
+}
+
+function Child({ event, data }) {
+  const [status, setStatus] = useState(0);
+  useEffect(() => {
+    console.log("child-useEffect", status);
+    setInterval(() => {
+      console.log("setInterval");
+      setStatus({});
+    }, 500);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   console.log("child-render");
   return (
     <div>
-      <p>child</p>
+      <p>{JSON.stringify(status)}</p>
       {/* <p>props-data: {data.data && data.data.openCode}</p> */}
       <button onClick={event}>调用父级event</button>
     </div>

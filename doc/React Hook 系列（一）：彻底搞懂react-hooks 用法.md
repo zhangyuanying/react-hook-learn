@@ -520,8 +520,8 @@ function Counter() {
 - 下一个 state 依赖于之前的 state 。
 - 想更稳定的构建自动化测试用例。
 - 想深层级修改子组件的一些状态，使用 useReducer 还能给那些会触发深更新的组件做性能优化，因为 [你可以向子组件传递 dispatch 而不是回调函数](https://zh-hans.reactjs.org/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down) 。
-  - 使用 reducer 有助于将读取与写入分开。
-    [DEMO6](https://codesandbox.io/s/react-hooks-demo6-fooxz)
+- 使用 reducer 有助于将读取与写入分开。
+[DEMO6](https://codesandbox.io/s/react-hooks-demo6-fooxz)
 
 ```jsx
 const fetchReducer = (state, action) => {
@@ -671,7 +671,6 @@ import React, { useRef, useEffect, useState, useCallback } from “react”;
 
 function Child({ event, data }) {
   console.log("child-render");
-  // 第五版
   useEffect(() => {
     console.log(“child-useEffect”);
     event();
@@ -764,11 +763,9 @@ function Demo8() {
   );
 }
 export default Demo8;
-
 ```
 
 **结论：**
-
 - 第一版：每次 render，handle 都是新的函数，且每次都能拿到最新的 data。
 - 第二版：用 useCallback 包裹 handle，每次 render， handle 也是新的函数，且每次都能拿到最新的 data， 和一版效果一样， 所以不建议这么用。
 - 第三版：useCallback 假如第二个参数 deps，handle 会被 memoized， 所以每次 data 都是第一次记忆时候的 data（闭包）。

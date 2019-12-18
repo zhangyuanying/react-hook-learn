@@ -1,11 +1,11 @@
 import React from "react";
 
 function BindHoc(Component) {
-  class HocComponent extends React.Component {
+  return class HocComponent extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        value: this.props.initialValue || ""
+        value: this.props.initialvalue || ""
       };
     }
     onChange = e => {
@@ -27,10 +27,7 @@ function BindHoc(Component) {
       };
       return <Component {...newProps} />;
     }
-  }
-  return React.forwardRef((props, ref) => (
-    <HocComponent {...props} forwardRef={ref} />
-  ));
+  };
 }
 
 export default BindHoc;

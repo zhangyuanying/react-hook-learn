@@ -9,10 +9,11 @@ class Stateful extends React.Component {
   }
   render() {
     return (
-      <p>
+      <div>
         Hello, {this.state.name}{" "}
         <button onClick={() => this.setState({ name: "007" })}>改名</button>
-      </p>
+        <p>data: {JSON.stringify(this.props.data)}</p>
+      </div>
     );
   }
 }

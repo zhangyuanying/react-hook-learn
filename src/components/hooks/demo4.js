@@ -12,11 +12,11 @@ function Demo4() {
   }, []);
   useEffect(() => {
     console.log("useEffect2");
-    const timeId = setInterval(() => {
+    const timeId = setTimeout(() => {
       console.log("useEffect2-setInterval-1000");
     }, 1000);
     return () => {
-      clearInterval(timeId);
+      clearTimeout(timeId);
     };
   }, []);
   return (
