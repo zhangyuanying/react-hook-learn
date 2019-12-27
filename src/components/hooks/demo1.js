@@ -3,7 +3,8 @@ import React, { useState } from "react";
 function Demo1() {
   const [count, setCount] = useState(0);
   const [obj, setData] = useState({});
-  console.log("render");
+  const newListener = React.useState(0);
+  console.log("render", newListener);
   return (
     <div>
       <p>You clicked {count} times</p>
