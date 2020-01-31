@@ -21,6 +21,7 @@ import DeepLearn from "./components/deep-learn";
 import { Divider } from "antd";
 import useCustom from "./components/deep-learn/global-state/useCustom";
 import { UnStatedNext } from "./pages/unstated-next";
+import { ReactMemo } from "./pages/ReactMemo";
 
 const Hoc = inheritHOC(Stateful);
 
@@ -43,6 +44,7 @@ function App() {
           <Link to="/page">Table</Link>
           <Link to="/deep-hook">深入hook用法</Link>
           <Link to="/unstated-next">unstated-next状态管理</Link>
+          <Link to="/react-memo">react-memo</Link>
 
           <Divider />
           <p>globalState: {globalState.counter}</p>
@@ -91,6 +93,9 @@ function App() {
             </Route>
             <Route path="/unstated-next">
               <UnStatedNext />
+            </Route>
+            <Route path="/react-memo">
+              <ReactMemo />
             </Route>
           </Switch>
         </div>

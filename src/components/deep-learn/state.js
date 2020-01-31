@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import { Button, Divider } from "antd";
+import useState from "./useState";
 
 // 第一版
 // function useState(initialvalue) {
@@ -11,14 +12,14 @@ import { Button, Divider } from "antd";
 // }
 
 // 第二版
-let _cache;
-function useState(init) {
-  _cache = _cache || init;
-  function setState(newState) {
-    _cache = newState;
-  }
-  return [_cache, setState];
-}
+// let _cache;
+// function useState(init) {
+//   _cache = _cache || init;
+//   function setState(newState) {
+//     _cache = newState;
+//   }
+//   return [_cache, setState];
+// }
 
 // 第三版
 // let _cache = [];
@@ -29,7 +30,7 @@ function useState(init) {
 //   function setState(newState) {
 //     _cache[currentIndex] = newState;
 //     console.log("useState", _cache, currentIndex, index);
-//     // index = 0;
+//     index = 0;
 //   }
 //   return [_cache[index++], setState];
 // }
@@ -51,7 +52,7 @@ function useState(init) {
 function State() {
   const [data, setData] = useState(0);
   const [data2, setData2] = useState(0);
-  console.log('data', data, data2)
+  console.log("data", data, data2);
 
   // useEffect(() => {
   //   console.log("useEffect", data);
@@ -91,6 +92,28 @@ function State() {
       >
         setData2++
       </Button>
+      <Divider />
+      <State2 />
+    </div>
+  );
+}
+
+function State2() {
+  const [data, setData] = useState(0);
+  const [_, reRender] = React.useState();
+  return (
+    <div>
+      <div>State2</div>
+      <p>
+        <Button
+          onClick={() => {
+            setData(data + 1);
+            reRender({});
+          }}
+        >
+          data: {data}{" "}
+        </Button>
+      </p>
     </div>
   );
 }

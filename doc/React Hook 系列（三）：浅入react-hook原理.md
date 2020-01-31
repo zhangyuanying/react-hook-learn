@@ -54,7 +54,34 @@ function useState(initialvalue) {
 ...
 ```
 😀，好像成功了，能及时更新成功。
-但是useState在函数组件中可以多次调用，第二版每次都会更新cache为最新调用那个initialvalue, 所以cache应该是stack， 不应给是基础数据类型。
+但是`react useState`在函数组件中可以多次调用，这个版本cache职能缓存最后一次调用useState的值。着里我们自然想到应该根据索引存入堆栈中。
+
+```jsx
+let _cache = [];
+let index = 0;
+function useState(init) {
+  _cache[index] = _cache[index] || init;
+  const cacheIndex = index; // 缓存index
+  function setState(newState) {
+    _cache[cacheIndex] = newState;
+    console.log("useState", _cache, cacheIndex, index);
+    index = 0;  // 每次render前useState函数都需重新调用，index也已经被缓存，所以在调用完setState需要将索引归为初始值。
+  }
+  return [_cache[index++], setState];
+}
+```
+
+到这里简易的useState实现差不多， 但防止不同组件之间的命名冲突，使在不同组件之间有独立的作用域。
+
+当然， 官方实现肯定不是这么简单，方式肯定也不同。  
+
+下面分析一下官方hook 的实现方式：
+
+>  首先，需要掌握hook的一些特点
+
+- 初次渲染时初始状态会被创建。
+- `update`时react会记住hook的状态（上面的例子也简单说明为什么需要记住）。
+- react在渲染hook组件时，会按照hook的书写顺序去渲染状态。
 
 
 
